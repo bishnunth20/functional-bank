@@ -1,8 +1,18 @@
-document.getElementById('deposit-button').addEventListener
-('click', function () {
+function getInputValue() {
   const depositInput = document.getElementById('deposit-input');
   const depositAmountText = depositInput.value;
   const depositAmount = parseFloat(depositAmountText);
+  // clear input field
+  depositInput.value = '';
+  return depositAmount;
+}
+
+document.getElementById('deposit-button').addEventListener
+('click', function () {
+  /*  const depositInput = document.getElementById('deposit-input');
+  const depositAmountText = depositInput.value;
+  const depositAmount = parseFloat(depositAmountText); */
+  const depositAmount = getInputValue();
 
   // get and update deposit total
   const depositTotal = document.getElementById('deposit-total');
@@ -11,8 +21,7 @@ document.getElementById('deposit-button').addEventListener
 
   depositTotal.innerText = previousDepositTotal + depositAmount;
 
-  // clear input field
-  depositInput.value = '';
+  
 
   // update balance
   const balanceTotal = document.getElementById('balance-total');
