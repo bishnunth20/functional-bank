@@ -13,4 +13,10 @@ document.getElementById('deposit-button').addEventListener
 
   // clear input field
   depositInput.value = '';
+
+  // update balance
+  const balanceTotal = document.getElementById('balance-total');
+  const balanceTotalText = balanceTotal.innerText;
+  const previousBalanceTotal = parseFloat(balanceTotalText);
+  balanceTotal.innerText = previousBalanceTotal + depositAmount;
 })
