@@ -1,10 +1,10 @@
-function getInputValue() {
-  const depositInput = document.getElementById('deposit-input');
-  const depositAmountText = depositInput.value;
-  const depositAmount = parseFloat(depositAmountText);
+function getInputValue(inputId) {
+  const inputField = document.getElementById(inputId);
+  const inputAmountText = inputField.value;
+  const amountValue = parseFloat(inputAmountText);
   // clear input field
-  depositInput.value = '';
-  return depositAmount;
+  inputField.value = '';
+  return amountValue;
 }
 
 document.getElementById('deposit-button').addEventListener
@@ -12,7 +12,7 @@ document.getElementById('deposit-button').addEventListener
   /*  const depositInput = document.getElementById('deposit-input');
   const depositAmountText = depositInput.value;
   const depositAmount = parseFloat(depositAmountText); */
-  const depositAmount = getInputValue();
+  const depositAmount = getInputValue('deposit-input');
 
   // get and update deposit total
   const depositTotal = document.getElementById('deposit-total');
@@ -34,9 +34,10 @@ document.getElementById('deposit-button').addEventListener
 // handle withdraw button
 document.getElementById('withdraw-button').addEventListener
 ('click', function () {
-  const withdrawInput = document.getElementById('withdraw-input');
-  const withdrawAmountText = withdrawInput.value;
-  const withdrawAmount = parseFloat(withdrawAmountText);
+  // const withdrawInput = document.getElementById('withdraw-input');
+  // const withdrawAmountText = withdrawInput.value;
+  // const withdrawAmount = parseFloat(withdrawAmountText);
+  const withdrawAmount = getInputValue('withdraw-input');
 
   // get and update withdraw total
   const withdrawTotal = document.getElementById('withdraw-total');
@@ -50,7 +51,4 @@ document.getElementById('withdraw-button').addEventListener
   const balanceTotalText = balanceTotal.innerText;
   const previousBalanceTotal = parseFloat(balanceTotalText);
   balanceTotal.innerText = previousBalanceTotal - withdrawAmount;
-
-  // clear withdraw input field
-  withdrawInput.value = '';
 })
