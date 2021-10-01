@@ -8,7 +8,7 @@ function getInputValue(inputId) {
 }
 
 function updateTotalField(totalFieldId, amount) {
-  debugger;
+  // debugger;
   const totalElement = document.getElementById(totalFieldId);
   const totalText = totalElement.innerText;
   const previousTotal = parseFloat(totalText);
